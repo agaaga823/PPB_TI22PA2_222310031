@@ -1,0 +1,18 @@
+import React from 'react';
+import {View, StyleSheet, Text, Image} from 'react-native';
+
+const Profile = () => {
+    return (
+        <View>
+            <Text>My Profile</Text>
+            <Text>Nama  : Putri Agatha Naomi</Text>
+            <Text>Kelas : TI22PA</Text>
+            <Text>NPM   : 222310031</Text>
+            <Image source = {require('../assets/Agatha2.jpg')}/>
+        </View>
+    );
+}
+
+const styles = StyleSheet.create({})
+
+export default Profile;
