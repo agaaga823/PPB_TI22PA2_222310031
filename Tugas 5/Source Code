@@ -1,0 +1,51 @@
+import React, { useState } from 'react';
+import { View, Text, TextInput, Button } from 'react-native';
+
+const App = () => {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+  const validatePassword = (password) => {
+    if (password.length < 3) {
+      return 'Type minimum 3 character';
+    } else if (!/^(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[@#$%^&*()_+=-{};:'<>,./?]).{8,}$/.test(password)) {
+      return 'Value must contain alphabet, number and symbol';
+    } else {
+      return 'Password is valid';
+    }
+  };
+
+  const handleSubmit = () => {
+    if (email === '222310031@student.ibik.ac.id' && password === '13082003') {
+      alert('Sign In Success');
+      // Redirect to next page
+    } else {
+      alert('Email/Password is not match');
+    }
+  };
+
+  return (
+    <View>
+      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+      <View style={{ width: '80%', height: '50%', backgroundColor: 'white', borderRadius: 10, padding: 20 }}>
+      <TextInput
+        placeholder="Email"
+        value={email}
+        onChangeText={(text) => setEmail(text)}
+        style={{ height: 40, borderColor: 'gray', borderWidth: 1, padding: 10 }}
+      />
+      <TextInput
+        placeholder="Password"
+        value={password}
+        onChangeText={(text) => setPassword(text)}
+        secureTextEntry={true}
+        style={{ height: 40, borderColor: 'gray', borderWidth: 1, padding: 10 }}
+      />
+      <Button title="SIGN IN" onPress={handleSubmit} />
+    </View>
+    </View>
+    </View>
+  );
+};
+
+export default App;
